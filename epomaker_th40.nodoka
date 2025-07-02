@@ -1,0 +1,110 @@
+# ----------------------------------------
+# Epomaker TH40用のどか設定ファイル
+# 2025 Romly
+# ----------------------------------------
+
+include "104.mayu"
+
+keymap Global
+
+
+
+# かな、無変換キーなど104.mayuにないキーの定義
+def key kana = 0x70
+def key muhenkan = 0x7b
+def key calculator = E0-0x21	# 電卓キー
+def key MediaStop = E0-0x24		# メディア停止
+
+
+
+
+# VIAで設定したかな(0x70)を Mod 0 に割り当て、単押しをIMEオフにする。
+mod mod0 = !!kana
+key *kana = &Ignore
+key m0-*kana = &SetImeStatus(off)
+key R-*kana = &Ignore
+
+
+
+# VIAで設定したCapsLockを Mod 1 に割り当て、単押しをIME切り替えに変更
+mod mod1 = !!CapsLock
+key *CapsLock = &Ignore # 本来の CapsLock の効果が発生しないようにする
+key m1-*CapsLock = &SetImeStatus(toggle)
+key R-*CapsLock = &Ignore # CapsLock をキーリピートした場合にIMEの切り替えが発生しないようにする
+
+
+
+# ----------------------------------------
+# Mod 0
+# ----------------------------------------
+
+# 40%用の足りないキー
+key M0-*Q = *LeftSquareBracket
+key M0-*W = *RightSquareBracket
+key M0-*R = S-*LeftSquareBracket
+key M0-*T = S-*RightSquareBracket
+key M0-*Return = S-*Apostrophe
+key M0-*Solidus = *Apostrophe
+
+# emacs風カーソル移動
+key m0-*B = *Left
+key m0-*F = *Right
+key m0-*P = *Up
+key m0-*N = *Down
+
+# 単語単位のカーソル移動
+key M0-*J = C-*Left
+key M0-*K = C-*Right
+
+# AIサジェストの部分確定
+key M0-*M = C-*Right
+
+# 行頭／行末への移動
+key M0-*A = *Home
+key M0-*E = *End
+
+# ページ単位のスクロール
+key M0-O = PageUp
+key M0-L = PageDown
+
+# 文頭／文末への移動
+key M0-*U = C-Home
+key M0-*I = C-End
+
+# バックスペース、DEL、単語単位の削除
+key M0-*D = *Delete
+key M0-*H = *BackSpace
+key M0-*Y = C-*BackSpace
+
+# ESC
+key M0-*S = *Esc
+
+# タブ切り替え用
+key M0-*Comma = C-PageUp
+key M0-*FullStop = C-PageDown
+
+# ウィンドウの移動用
+key M0-*X = W-*Left
+key M0-*C = W-*Right
+
+
+
+# ----------------------------------------
+# Mod 1
+# macOSにおけるfnキーの真似
+# ----------------------------------------
+
+# eキーで絵文字パレット
+key M1-*E = W-*FullStop
+
+# macではspotlightなんだけどまあ電卓でいいや
+key M1-*F4 = calculator
+key M1-*F6 = MediaStop
+key M1-*F7 = &VK(MEDIA_PREV_TRACK)
+key M1-*F8 = &VK(MEDIA_PLAY_PAUSE)
+key M1-*F9 = &VK(MEDIA_NEXT_TRACK)
+
+# 音量
+key M1-*F10 = &VK(VOLUME_MUTE)
+key M1-*F11 = &VK(VOLUME_DOWN)
+key M1-*F12 = &VK(VOLUME_UP)

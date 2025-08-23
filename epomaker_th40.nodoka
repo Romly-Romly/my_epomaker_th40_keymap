@@ -87,6 +87,9 @@ key M0-*FullStop = C-PageDown
 key M0-*X = W-*Left
 key M0-*C = W-*Right
 
+# タスクビュー
+key M0-*V = W-*Tab
+
 
 
 # ----------------------------------------

@@ -1,0 +1,398 @@
+{
+	"title": "Epomaker TH40 (かなを左ControlにしてMODキーとして使う)",
+	"rules": [
+		{
+			"description": "Control + m -> Cmd + → （AIサジェストの部分確定）",
+			"manipulators": [
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "m",
+						"modifiers": { "mandatory": ["control"], "optional": ["any"] }
+					},
+					"to": [
+						{
+							"key_code": "right_arrow",
+							"modifiers": ["left_command"]
+						}
+					]
+				}
+			]
+		},
+		{
+			"description": "Control + ,/. -> Cmd + Shift + [/] （タブ切り替え）",
+			"manipulators": [
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "comma",
+						"modifiers": { "mandatory": ["control"], "optional": ["any"] }
+					},
+					"to": [
+						{
+							"key_code": "open_bracket",
+							"modifiers": ["left_command", "left_shift"]
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "period",
+						"modifiers": { "mandatory": ["control"], "optional": ["any"] }
+					},
+					"to": [
+						{
+							"key_code": "close_bracket",
+							"modifiers": ["left_command", "left_shift"]
+						}
+					]
+				}
+			]
+		},
+		{
+			"description": "Control <-> Command",
+			"manipulators": [
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "left_control",
+						"modifiers":
+						{
+							"mandatory": [],
+							"optional": ["any"]
+						}
+					},
+					"to": [ {"key_code":"left_command"} ]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "left_command",
+						"modifiers":
+						{
+							"mandatory": [],
+							"optional": ["any"]
+						}
+					},
+					"to": [ {"key_code":"left_control"} ]
+				}
+			]
+		},
+		{
+			"description": "Control + q w r t enter / -> [ ] { } \" '",
+			"manipulators": [
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "q",
+						"modifiers": { "mandatory": ["control"], "optional": ["any"] }
+					},
+					"to": [ {"key_code": "open_bracket"} ]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "w",
+						"modifiers": { "mandatory": ["control"], "optional": ["any"] }
+					},
+					"to": [ {"key_code": "close_bracket"} ]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "r",
+						"modifiers": { "mandatory": ["control"], "optional": ["any"] }
+					},
+					"to": [ {"key_code": "open_bracket", "modifiers": ["shift"] } ]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "t",
+						"modifiers": { "mandatory": ["control"], "optional": ["any"] }
+					},
+					"to": [ {"key_code": "close_bracket", "modifiers": ["shift"] } ]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "return_or_enter",
+						"modifiers": { "mandatory": ["control"], "optional": ["any"] }
+					},
+					"to": [ {"key_code": "quote", "modifiers": ["shift"] } ]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "slash",
+						"modifiers": { "mandatory": ["control"], "optional": ["any"] }
+					},
+					"to": [ {"key_code": "quote", "modifiers": [] } ]
+				}
+			]
+		},
+		{
+			"description": "かな → Control / 単押しIME OFF",
+			"manipulators": [
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "japanese_pc_katakana",
+						"modifiers":
+						{
+							"mandatory": [],
+							"optional": ["any"]
+						}
+					},
+					"to": [ {"key_code":"left_control"} ],
+					"to_delayed_action": {
+						"to_if_invoked": [
+							{
+								"select_input_source": {
+									"language": "^en$",
+									"input_source_id": "^com\\.apple\\.keylayout\\.US$"
+								}
+							}
+						]
+					}
+				}
+			]
+		},
+		{
+			"description": "Control + p/n/b/f → ↑/↓/←/→",
+			"manipulators": [
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "p",
+						"modifiers": { "mandatory": ["control"], "optional": ["any"] }
+					},
+					"to": [{ "key_code": "up_arrow" }]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "n",
+						"modifiers": { "mandatory": ["control"], "optional": ["any"] }
+					},
+					"to": [{ "key_code": "down_arrow" }]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "b",
+						"modifiers": { "mandatory": ["control"], "optional": ["any"] }
+					},
+					"to": [{ "key_code": "left_arrow" }]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "f",
+						"modifiers": { "mandatory": ["control"], "optional": ["any"] }
+					},
+					"to": [{ "key_code": "right_arrow" }]
+				}
+			]
+		},
+		{
+			"description": "Control + y → option + delete_or_backspace",
+			"manipulators": [
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "y",
+						"modifiers": { "mandatory": ["control"], "optional": ["any"] }
+					},
+					"to": [
+						{
+							"key_code": "delete_or_backspace",
+							"modifiers": ["option"]
+						}
+					]
+				}
+			]
+		},
+		{
+			"description": "Control + h → delete_or_backspace",
+			"manipulators": [
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "h",
+						"modifiers": { "mandatory": ["control"], "optional": ["any"] }
+					},
+					"to": [
+						{
+							"key_code": "delete_or_backspace",
+							"modifiers": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"description": "Control + j/k → option + ←/→",
+			"manipulators": [
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "j",
+						"modifiers": { "mandatory": ["control"], "optional": ["any"] }
+					},
+					"to": [
+						{
+							"key_code": "left_arrow",
+							"modifiers": ["left_option"]
+						}
+					]
+				},
+
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "k",
+						"modifiers": { "mandatory": ["control"], "optional": ["any"] }
+					},
+					"to": [
+						{
+							"key_code": "right_arrow",
+							"modifiers": ["left_option"]
+						}
+					]
+				}
+			]
+		},
+		{
+			"description": "Control + u/i → command + ↑/↓",
+			"manipulators": [
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "u",
+						"modifiers": { "mandatory": ["control"], "optional": ["any"] }
+					},
+					"to": [
+						{
+							"key_code": "up_arrow",
+							"modifiers": ["left_command"]
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "i",
+						"modifiers": { "mandatory": ["control"], "optional": ["any"] }
+					},
+					"to": [
+						{
+							"key_code": "down_arrow",
+							"modifiers": ["left_command"]
+						}
+					]
+				}
+			]
+		},
+		{
+			"description": "Control + s → escape",
+			"manipulators": [
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "s",
+						"modifiers": { "mandatory": ["control"], "optional": ["any"] }
+					},
+					"to": [ {"key_code": "escape"} ]
+				}
+			]
+		},
+		{
+			"description": "Control + d → delete",
+			"manipulators": [
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "d",
+						"modifiers": { "mandatory": ["control"], "optional": ["any"] }
+					},
+					"to": [ {"key_code": "delete_forward"} ]
+				}
+			]
+		},
+		{
+			"description": "Control + o/l → PageUp/PageDown",
+			"manipulators": [
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "o",
+						"modifiers": { "mandatory": ["control"], "optional": ["any"] }
+					},
+					"to": [{ "key_code": "page_up" }]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "l",
+						"modifiers": { "mandatory": ["control"], "optional": ["any"] }
+					},
+					"to": [{ "key_code": "page_down" }]
+				}
+			]
+		},
+		{
+			"description": "Control + a/e → control + a/e",
+			"manipulators": [
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "a",
+						"modifiers": { "mandatory": ["control"], "optional": ["any"] }
+					},
+					"to": [{ "key_code": "a", "modifiers": ["control"] }]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "e",
+						"modifiers": { "mandatory": ["control"], "optional": ["any"] }
+					},
+					"to": [{ "key_code": "e", "modifiers": ["control"] }]
+				}
+			]
+		},
+		{
+			"description": "Control + x/c → fn + control + ←/→",
+			"manipulators": [
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "x",
+						"modifiers": { "mandatory": ["control"], "optional": ["any"] }
+					},
+					"to": [
+						{
+							"key_code": "left_arrow",
+							"modifiers": ["left_control", "fn"]
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "c",
+						"modifiers": { "mandatory": ["control"], "optional": ["any"] }
+					},
+					"to": [
+						{
+							"key_code": "right_arrow",
+							"modifiers": ["left_control", "fn"]
+						}
+					]
+				}
+			]
+		}
+	]
+}

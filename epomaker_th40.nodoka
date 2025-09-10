@@ -86,9 +86,10 @@ key M0-*FullStop = C-PageDown
 # ウィンドウの移動用
 key M0-*X = W-*Left
 key M0-*C = W-*Right
+key M0-*V = W-*Up
 
 # タスクビュー
-key M0-*V = W-*Tab
+key M0-*G = W-*Tab
 
 
 

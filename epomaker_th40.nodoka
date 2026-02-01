@@ -66,8 +66,8 @@ key m0-*P = *Up
 key m0-*N = *Down
 
 # 単語単位のカーソル移動
-key M0-*J = C-*Left
-key M0-*K = C-*Right
+key M0-*J = D-LeftControl D-C-Left U-C-Left U-LeftControl
+key M0-*K = D-LeftControl D-C-Right U-C-Right U-LeftControl
 
 # AIサジェストの部分確定
 key M0-*M = C-*Right
